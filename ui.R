@@ -1,0 +1,42 @@
+library(shiny)
+shinyUI(fluidPage(
+        titlePanel("World Clock"),
+        sidebarLayout(
+                sidebarPanel(
+                        h3('What time is it?'),
+                        numericInput('time1','Hour (0-23)',NA,min = 0,max = 23, step = 1),
+                        numericInput('time2','Minute (0-59)',NA,min = 0,max = 59, step = 1),
+                        h3('What time zone do you live in?'),
+                        selectInput("zone1",label = "Select your time zone",
+                                    choices = c("Zone 1 - Sidney" = 1, "Zone 2 - Tokyo" = 2,
+                                                "Zone 3 - Beijing" = 3, "Zone 4 - Abu Dahbi" = 4,
+                                                "Zone 5 - Moskow" = 5, "Zone 6 - Europe" = 6,
+                                                "Zone 7 - England" = 7, "Zone 8 - USA East Coast" = 8,
+                                                "Zone 9 - USA West Coast" = 9, "Zone 10 - Hawaii" = 10)),
+                        submitButton('Submit')),
+                mainPanel(("* Minutes are always the same"),
+                        h4('Local Time'),
+                        verbatimTextOutput("hour"),
+                        verbatimTextOutput("min"),
+                        h4('Hour in Zone 1 - Sidney'),
+                        verbatimTextOutput("hour1"),
+                        h4('Hour in Zone 2 - Tokyo'),
+                        verbatimTextOutput("hour2"),
+                        h4('Hour in Zone 3 - Beijing'),
+                        verbatimTextOutput("hour3"),
+                        h4('Hour in Zone 4 - Abu Dhabi'),
+                        verbatimTextOutput("hour4"),
+                        h4('Hour in Zone 5 - Moscow'),
+                        verbatimTextOutput("hour5"),
+                        h4('Hour in Zone 6 - Europe'),
+                        verbatimTextOutput("hour6"),
+                        h4('Hour in Zone 7 - England'),
+                        verbatimTextOutput("hour7"),
+                        h4('Hour in Zone 8 - USA East Coast'),
+                        verbatimTextOutput("hour8"),
+                        h4('Hour in Zone 9 - USA West Coast'),
+                        verbatimTextOutput("hour9"),
+                        h4('Hour in Zone 10 - Hawaii'),
+                        verbatimTextOutput("hour10"))
+))
+)
